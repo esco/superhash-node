@@ -12,7 +12,7 @@ ArgCache.prototype.getCacheKey = function() {
 
   for (var i = 0; i < len; i++) {
     arg = arguments[i];
-    part = (typeof arg != 'function') ? JSON.stringify(arg) : arg.toString();
+    part = (typeof arg !== 'function') ? JSON.stringify(arg) : arg.toString();
     hashState.hash(part);
   }
 
@@ -22,17 +22,20 @@ ArgCache.prototype.getCacheKey = function() {
 ArgCache.prototype.set = function() {
   var value = Array.prototype.splice.call(arguments, arguments.length-1, arguments.length)[0];
   var key = this.getCacheKey.apply(this, arguments);
+
   this.store[key] = value;
   return key;
 };
 
 ArgCache.prototype.get = function() {
   var key = this.getCacheKey.apply(this, arguments);
+
   return this.store[key];
 };
 
 ArgCache.prototype.delete = function() {
   var key = this.getCacheKey.apply(this, arguments);
+
   if (!key) {
     return false;
   }
