@@ -1,3 +1,5 @@
+![build status](https://travis-ci.org/esco/argcache.svg?branch=master)
+
 argcache
 ========
 
