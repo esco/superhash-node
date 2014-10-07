@@ -1,7 +1,7 @@
 {
   "name": "argcache",
   "version": "0.0.1",
-  "description": "Cache utility that uses method arguments as key",
+  "description": "Cache utility that uses method arguments as the key",
   "main": "argcache.js",
   "repository": {
     "type": "git",
@@ -10,7 +10,7 @@
   "scripts": {
     "test": "mocha test/*-test.js --require test/config.js"
   },
-  "author": "",
+  "author": "Esco Obong",
   "license": "ISC",
   "devDependencies": {
     "chai": "^1.9.2",
