@@ -8,15 +8,25 @@
     "url": "https://github.com/esco/argcache.git"
   },
   "scripts": {
-    "test": "mocha test/*-test.js --require test/config.js"
+    "test": "mocha test/*-test.js --require test/config.js",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --ignore-leaks --require test/config  test/",
+    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec --ignore-leaks --require test/config test/"
   },
   "author": "Esco Obong",
   "license": "ISC",
   "devDependencies": {
     "chai": "^1.9.2",
+    "grunt": "^0.4.5",
+    "gulp": "^3.8.8",
+    "gulp-coveralls": "^0.1.3",
+    "gulp-istanbul": "^0.3.1",
+    "gulp-jshint": "^1.8.5",
+    "gulp-mocha": "^1.1.1",
+    "jshint-stylish": "^1.0.0",
     "mocha": "^1.21.4"
   },
   "dependencies": {
-    "imurmurhash": "^0.1.4"
+    "imurmurhash": "^0.1.4",
+    "istanbul": "^0.3.2"
   }
 }

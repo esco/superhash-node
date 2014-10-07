@@ -17,19 +17,19 @@ ArgCache.prototype.getCacheKey = function() {
   }
 
   return hashState.result();
-}
+};
 
 ArgCache.prototype.set = function() {
   var value = Array.prototype.splice.call(arguments, arguments.length-1, arguments.length)[0];
   var key = this.getCacheKey.apply(this, arguments);
   this.store[key] = value;
   return key;
-}
+};
 
 ArgCache.prototype.get = function() {
   var key = this.getCacheKey.apply(this, arguments);
   return this.store[key];
-}
+};
 
 ArgCache.prototype.delete = function() {
   var key = this.getCacheKey.apply(this, arguments);
@@ -37,6 +37,6 @@ ArgCache.prototype.delete = function() {
     return false;
   }
   return delete this.store[key];
-}
+};
 
 module.exports = ArgCache;
