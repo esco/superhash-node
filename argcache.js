@@ -13,7 +13,7 @@ function ArgCache() {
 /**
  * Generates a cache key using arguments
  *
- * @param {...*} ...arguments - Used to generate the key with MurmurHash3
+ * @param {...*} arguments - Used to generate the key with MurmurHash3
  * @return {Number} the generated hash
  * @api public
  */
@@ -35,7 +35,7 @@ ArgCache.prototype.getCacheKey = function() {
 /**
  * Creates a key from the arguments if it doesn't exist and sets the last argument passed in as the value
  *
- * @param {...*} ...arguments - Used to generate key except for the last one which is the value to be associated with the key
+ * @param {...*} arguments - Used to generate key except for the last one which is the value to be associated with the key
  * @return {Number} the key associated with the arguments (minus the last one)
  * @api public
  */
@@ -50,7 +50,7 @@ ArgCache.prototype.set = function() {
 /**
  * Returns the value associated with the key generated from the arguments
  *
- * @param {...*} ...arguments - Used to generate a key for lookup
+ * @param {...*} arguments - Used to generate a key for lookup
  * @return {Object} value associated with generated key
  * @api public
  */
@@ -63,7 +63,7 @@ ArgCache.prototype.get = function() {
 /**
  * Remove the key and associated value
  *
- * @param {...*} ...arguments - Used to generate a key for lookup
+ * @param {...*} arguments - Used to generate a key for lookup
  * @return {Boolean} whether the key existed or not
  * @api public
  */
