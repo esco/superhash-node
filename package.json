@@ -1,0 +1,18 @@
+{
+  "name": "argcache",
+  "version": "0.0.0",
+  "description": "Cache utility that uses method arguments as key",
+  "main": "argcache.js",
+  "scripts": {
+    "test": "mocha test/*-test.js --require test/config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "mocha": "^1.21.4"
+  },
+  "dependencies": {
+    "imurmurhash": "^0.1.4"
+  }
+}
