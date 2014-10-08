@@ -38,3 +38,16 @@ Returns the value associated with the key generated from the arguments
 Remove the key and associated value
 
 ## Examples
+
+```javascript
+var cache = new ArgCache;
+var data = { views: 3 };
+
+// generates key using all arguments except for the last one
+// sets `data` as the value for the generated key
+// returns the key
+cache.set(1,{ name: 'foo' }, true, data);
+
+// returns data
+cache.get(1,{ name: 'foo' }, true);
+```

@@ -25,10 +25,10 @@
     "gulp-mocha": "^1.1.1",
     "gulp-yuidoc": "^0.1.2",
     "jshint-stylish": "^1.0.0",
-    "mocha": "^1.21.4"
+    "mocha": "^1.21.4",
+    "istanbul": "^0.3.2"
   },
   "dependencies": {
-    "imurmurhash": "^0.1.4",
-    "istanbul": "^0.3.2"
+    "imurmurhash": "^0.1.4"
   }
 }
