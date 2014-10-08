@@ -14,8 +14,8 @@ npm install argmap
 ## Examples
 
 ```js
-var ArgMap = require('argmap');
-var map = new ArgMap;
+var MultiKeyHashMap = require('multikey');
+var map = new MultiKeyHashMap;
 var data = 'value';
 
 map.set(1,{ name: 'foo' }, true, data);
@@ -23,12 +23,12 @@ map.set(1,{ name: 'foo' }, true, data);
 map.get(1,{ name: 'foo' }, true);
 //'value'
 map.delete(1,{ name: 'foo' }, true);
-//true <--- succesfully delete key,val pair from map
+//true <--- succesfully delete keys,val pair from map
 ```
 
 ## FAQ
 
-### What types can be used to create a hash key?
+### What types of objects can be used to create a hash key?
 
 Thanks to [toSource](https://github.com/marcello3d/node-tosource) the following types are supported
 

@@ -16,7 +16,7 @@ gulp.task('lint', function(){
 });
 
 gulp.task("docs", function () {
-  return gulp.src('argmap.js')
+  return gulp.src('multikey.js')
     .pipe(mdox({
       name: "API.md",
       github: true

@@ -1,12 +1,12 @@
-describe('Map', function () {
-  var ArgMap = new require('../argmap');
+describe('HashMap', function () {
+  var MultiKeyHashMap = new require('../multikey');
   var map;
 
   beforeEach(function () {
-    map = new ArgMap();
+    map = new MultiKeyHashMap();
   });
 
-  describe('.set(args, value)', function(){
+  describe('.set(...keys, value)', function(){
     it('should set key with value', function () {
       var expectedKey = 1438329965;
       var expectedValue = 'val';
@@ -17,7 +17,7 @@ describe('Map', function () {
     });
   });
 
-  describe('.get(key)', function(){
+  describe('.get(...keys)', function(){
     it('should return value for known key', function(){
       var expectedValue = 'val';
       map.set(1,2,3,expectedValue);
@@ -31,7 +31,7 @@ describe('Map', function () {
     });
   });
 
-  describe('.delete(key)', function(){
+  describe('.delete(...keys)', function(){
     it('should remove key and return true', function(){
       var expectedValue = 'val';
       map.set(1,2,3, expectedValue);
@@ -46,22 +46,22 @@ describe('Map', function () {
     });
   });
 
-  describe('.getKey', function () {
+  describe('.hash', function () {
     it('should get map key from numbers', function(){
       var expectedKey = 1438329965;
-      var key = map.getKey(1,2,3);
+      var key = map.hash(1,2,3);
       key.should.equal(expectedKey);
     });
 
     it('should get map key from objects', function(){
       var expectedKey = 3423628354;
-      var key = map.getKey(1,{b:2},3);
+      var key = map.hash(1,{b:2},3);
       key.should.deep.equal(expectedKey);
     });
 
     it('should get map key from function', function(){
       var expectedKey = 2840318591;
-      var key = map.getKey(1,{b:2},test);
+      var key = map.hash(1,{b:2},test);
 
       function test(arg) {
         console.log(arg);
