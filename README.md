@@ -23,7 +23,7 @@ map.set(1,{ name: 'foo' }, true, data);
 map.get(1,{ name: 'foo' }, true);
 //'value'
 map.delete(1,{ name: 'foo' }, true);
-//true <--- succesfully delete keys,val pair from map
+//true <--- succesfully delete entry from map
 ```
 
 ## FAQ
