@@ -3,7 +3,9 @@
 argmap
 ========
 
-map that uses method arguments as the key.
+Map that uses method arguments as the key.
+
+Keys are generated using a string representation of all but the last of the arguments passed to `.set()` using the [MurmurHash3](http://en.wikipedia.org/wiki/MurmurHash) algorithm for efficient memory usage, speed and random distribution. The last argument is that value to be associated with the key.
 
 ```
 npm install argmap
