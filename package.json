@@ -1,6 +1,6 @@
 {
   "name": "argcache",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Cache utility that uses method arguments as the key",
   "main": "argcache.js",
   "repository": {
