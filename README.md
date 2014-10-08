@@ -35,7 +35,7 @@ Returns the value associated with the key generated from the arguments
 ### `delete(arguments)`
 * **arguments** (`...*`) - Used to generate a key for lookup
 
-Remove the key and associated value
+Removes the key and associated value
 
 ## Examples
 
@@ -48,6 +48,6 @@ var data = { views: 3 };
 // returns the key
 cache.set(1,{ name: 'foo' }, true, data);
 
-// returns data
+// returns `data`
 cache.get(1,{ name: 'foo' }, true);
 ```

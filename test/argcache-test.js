@@ -41,11 +41,8 @@ describe('Cache', function () {
 
     it('should return false if key didn\'t exist', function(){
       var expectedValue = 'val';
-      var result;
-
       cache.set(1,2,3, expectedValue);
-      result = cache.delete(1,2,3);
-      should.exist(result);
+      cache.delete('a','b','c').should.not.be.ok;
     });
   });
 

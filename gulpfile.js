@@ -38,5 +38,5 @@ gulp.task('test', function(){
 });
 
 gulp.task('watch', function(){
-  gulp.watch(paths.src, ['lint', 'test', 'docs']);
+  gulp.watch([paths.src, paths.tests], ['lint', 'test', 'docs']);
 });

@@ -61,7 +61,7 @@ ArgCache.prototype.get = function() {
 };
 
 /**
- * Remove the key and associated value
+ * Removes the key and associated value
  *
  * @param {...*} arguments - Used to generate a key for lookup
  * @return {Boolean} whether the key existed or not
@@ -70,7 +70,7 @@ ArgCache.prototype.get = function() {
 ArgCache.prototype.delete = function() {
   var key = this.getCacheKey.apply(this, arguments);
 
-  if (!key) {
+  if (!this.store[key]) {
     return false;
   }
   return delete this.store[key];
