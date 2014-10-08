@@ -1,7 +1,7 @@
 {
-  "name": "argmap",
+  "name": "multikey",
   "version": "0.0.3",
-  "description": "map that uses method arguments as the key",
+  "description": "HashMap that uses supports using multiple keys of any type",
   "main": "multikey.js",
   "repository": {
     "type": "git",
