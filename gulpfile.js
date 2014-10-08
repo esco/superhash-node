@@ -16,7 +16,7 @@ gulp.task('lint', function(){
 });
 
 gulp.task("docs", function () {
-  return gulp.src('argcache.js')
+  return gulp.src('argmap.js')
     .pipe(mdox({
       src: "./README.md",
       name: "README.md",

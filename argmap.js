@@ -1,35 +1,25 @@
 var MurmurHash3 = require('imurmurhash');
+var toSource = require('tosource');
 
 /**
- * Creates a new ArgCache
+ * Creates a new ArgMap
  *
  * @class
  * @api public
  */
-function ArgCache() {
+function ArgMap() {
   this.store = {};
 }
 
 /**
- * Generates a cache key using arguments
+ * Generates a key using arguments
  *
  * @param {...*} arguments - Used to generate the key with MurmurHash3
  * @return {Number} the generated hash
  * @api public
  */
-ArgCache.prototype.getCacheKey = function() {
-  var hashState = new MurmurHash3();
-  var len = arguments.length;
-  var arg;
-  var part;
-
-  for (var i = 0; i < len; i++) {
-    arg = arguments[i];
-    part = (typeof arg !== 'function') ? JSON.stringify(arg) : arg.toString();
-    hashState.hash(part);
-  }
-
-  return hashState.result();
+ArgMap.prototype.getKey = function() {
+  return MurmurHash3(toSource(arguments)).result();
 };
 
 /**
@@ -39,9 +29,9 @@ ArgCache.prototype.getCacheKey = function() {
  * @return {Number} the key associated with the arguments (minus the last one)
  * @api public
  */
-ArgCache.prototype.set = function() {
+ArgMap.prototype.set = function() {
   var value = Array.prototype.splice.call(arguments, arguments.length-1, arguments.length)[0];
-  var key = this.getCacheKey.apply(this, arguments);
+  var key = this.getKey.apply(this, arguments);
 
   this.store[key] = value;
   return key;
@@ -54,8 +44,8 @@ ArgCache.prototype.set = function() {
  * @return {Object} value associated with generated key
  * @api public
  */
-ArgCache.prototype.get = function() {
-  var key = this.getCacheKey.apply(this, arguments);
+ArgMap.prototype.get = function() {
+  var key = this.getKey.apply(this, arguments);
 
   return this.store[key];
 };
@@ -67,8 +57,8 @@ ArgCache.prototype.get = function() {
  * @return {Boolean} whether the key existed or not
  * @api public
  */
-ArgCache.prototype.delete = function() {
-  var key = this.getCacheKey.apply(this, arguments);
+ArgMap.prototype.delete = function() {
+  var key = this.getKey.apply(this, arguments);
 
   if (!this.store[key]) {
     return false;
@@ -76,4 +66,4 @@ ArgCache.prototype.delete = function() {
   return delete this.store[key];
 };
 
-module.exports = ArgCache;
+module.exports = ArgMap;

@@ -1,29 +1,29 @@
-[![Build Status](https://travis-ci.org/esco/argcache.svg?branch=master)](https://travis-ci.org/esco/argcache) [![Coverage Status](https://img.shields.io/coveralls/esco/argcache.svg)](https://coveralls.io/r/esco/argcache) [![Code Climate](https://codeclimate.com/github/esco/argcache/badges/gpa.svg)](https://codeclimate.com/github/esco/argcache)
+[![Build Status](https://travis-ci.org/esco/argmap.svg?branch=master)](https://travis-ci.org/esco/argmap) [![Coverage Status](https://img.shields.io/coveralls/esco/argmap.svg)](https://coveralls.io/r/esco/argmap) [![Code Climate](https://codeclimate.com/github/esco/argmap/badges/gpa.svg)](https://codeclimate.com/github/esco/argmap)
 
-argcache
+argmap
 ========
 
 Cache utility that uses method arguments as the key.
 
 ```
-npm install argcache
+npm install argmap
 ```
 
 ## API
 
-* [`ArgCache`](#argcache)
-* [`getCacheKey(arguments)`](#getcachekeyarguments)
+* [`ArgMap`](#argmap)
+* [`getKey(arguments)`](#getkeyarguments)
 * [`set(arguments)`](#setarguments)
 * [`get(arguments)`](#getarguments)
 * [`delete(arguments)`](#deletearguments)
 
-### `ArgCache`
+### `ArgMap`
 
-Creates a new ArgCache
-### `getCacheKey(arguments)`
+Creates a new ArgMap
+### `getKey(arguments)`
 * **arguments** (`...*`) - Used to generate the key with MurmurHash3
 
-Generates a cache key using arguments
+Generates a key using arguments
 ### `set(arguments)`
 * **arguments** (`...*`) - Used to generate key except for the last one which is the value to be associated with the key
 
@@ -40,14 +40,14 @@ Removes the key and associated value
 ## Examples
 
 ```javascript
-var cache = new ArgCache;
+var map = new ArgMap;
 var data = { views: 3 };
 
 // generates key using all arguments except for the last one
 // sets `data` as the value for the generated key
 // returns the key
-cache.set(1,{ name: 'foo' }, true, data);
+map.set(1,{ name: 'foo' }, true, data);
 
 // returns `data`
-cache.get(1,{ name: 'foo' }, true);
+map.get(1,{ name: 'foo' }, true);
 ```
