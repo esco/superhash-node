@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/esco/argmap.svg?branch=master)](https://travis-ci.org/esco/argmap) [![Coverage Status](https://img.shields.io/coveralls/esco/argmap.svg)](https://coveralls.io/r/esco/argmap) [![Code Climate](https://codeclimate.com/github/esco/argmap/badges/gpa.svg)](https://codeclimate.com/github/esco/argmap)
+[![Build Status](https://travis-ci.org/esco/argmap.svg?branch=master)](https://travis-ci.org/esco/argmap) [![Coverage Status](https://coveralls.io/repos/esco/argmap/badge.png)](https://coveralls.io/r/esco/argmap) [![Code Climate](https://codeclimate.com/github/esco/argmap/badges/gpa.svg)](https://codeclimate.com/github/esco/argmap)
 
 argmap
 ========
