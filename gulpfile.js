@@ -18,10 +18,7 @@ gulp.task('lint', function(){
 gulp.task("docs", function () {
   return gulp.src('argmap.js')
     .pipe(mdox({
-      src: "./README.md",
-      name: "README.md",
-      start: "## API",
-      end: "## Examples",
+      name: "API.md",
       github: true
     }))
     .pipe(gulp.dest("./"));

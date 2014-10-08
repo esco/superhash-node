@@ -3,51 +3,42 @@
 argmap
 ========
 
-Cache utility that uses method arguments as the key.
+map that uses method arguments as the key.
 
 ```
 npm install argmap
 ```
 
-## API
-
-* [`ArgMap`](#argmap)
-* [`getKey(arguments)`](#getkeyarguments)
-* [`set(arguments)`](#setarguments)
-* [`get(arguments)`](#getarguments)
-* [`delete(arguments)`](#deletearguments)
-
-### `ArgMap`
-
-Creates a new ArgMap
-### `getKey(arguments)`
-* **arguments** (`...*`) - Used to generate the key with MurmurHash3
-
-Generates a key using arguments
-### `set(arguments)`
-* **arguments** (`...*`) - Used to generate key except for the last one which is the value to be associated with the key
-
-Creates a key from the arguments if it doesn't exist and sets the last argument passed in as the value
-### `get(arguments)`
-* **arguments** (`...*`) - Used to generate a key for lookup
-
-Returns the value associated with the key generated from the arguments
-### `delete(arguments)`
-* **arguments** (`...*`) - Used to generate a key for lookup
-
-Removes the key and associated value
-
 ## Examples
 
-```javascript
+```js
+var ArgMap = require('argmap');
 var map = new ArgMap;
-var data = { views: 3 };
-
-// generates key using all arguments except for the last one
-// sets `data` as the value for the generated key
-// returns the key
+var data = 'value';
 map.set(1,{ name: 'foo' }, true, data);
-
-// returns `data`
+//2207988983 <-- key generated from arguments
 map.get(1,{ name: 'foo' }, true);
+//'value'
+map.delete(1,{ name: 'foo' }, true);
+//true <--- succesfully delete key,val pair from map
 ```
+
+## FAQ
+
+### What types can be used to create a hash key?
+
+Thanks to [toSource](https://github.com/marcello3d/node-tosource) the following types are supported
+
+* Numbers
+* Strings
+* Array literals
+* object literals
+* function
+* RegExp literals
+* Dates
+* true
+* false
+* undefined
+* null
+* NaN
+* Infinity

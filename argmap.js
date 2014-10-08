@@ -14,7 +14,7 @@ function ArgMap() {
 /**
  * Generates a key using arguments
  *
- * @param {...*} arguments - Used to generate the key with MurmurHash3
+ * @param {...*} arguments - Used to generate the key with [MurmurHash3](https://github.com/jensyt/imurmurhash-js)
  * @return {Number} the generated hash
  * @api public
  */
