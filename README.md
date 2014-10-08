@@ -15,6 +15,7 @@ npm install argmap
 var ArgMap = require('argmap');
 var map = new ArgMap;
 var data = 'value';
+
 map.set(1,{ name: 'foo' }, true, data);
 //2207988983 <-- key generated from arguments
 map.get(1,{ name: 'foo' }, true);
