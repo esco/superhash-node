@@ -19,7 +19,11 @@ function MultiKeyHashMap() {
  * @api public
  */
 MultiKeyHashMap.prototype.hash = function() {
-  return MurmurHash3(toSource(arguments)).result();
+  var hashState = MurmurHash3();
+  for (var i = 0, len = arguments.length ;  i < len; i++) {
+    hashState.hash(toSource(arguments[i]));
+  }
+  return hashState.result();
 };
 
 /**

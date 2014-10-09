@@ -7,8 +7,8 @@ describe('HashMap', function () {
   });
 
   describe('.set(...keys, value)', function(){
-    it('should set key with value', function () {
-      var expectedKey = 1438329965;
+    it('should set keys for value', function () {
+      var expectedKey = 2662625771;
       var expectedValue = 'val';
 
       map.set(1,2,3,expectedValue);
@@ -18,16 +18,16 @@ describe('HashMap', function () {
   });
 
   describe('.get(...keys)', function(){
-    it('should return value for known key', function(){
+    it('should return value for known keys', function(){
       var expectedValue = 'val';
       map.set(1,2,3,expectedValue);
       map.get(1,2,3).should.equal(expectedValue);
     });
 
-    it('should return null for unknown key', function(){
+    it('should return undefined for unknown keys', function(){
       var expectedValue = 'val';
       var value = map.get(1,2,3);
-      should.not.exist(value);
+      should.equal(value, undefined);
     });
   });
 
@@ -47,26 +47,9 @@ describe('HashMap', function () {
   });
 
   describe('.hash', function () {
-    it('should get map key from numbers', function(){
-      var expectedKey = 1438329965;
-      var key = map.hash(1,2,3);
-      key.should.equal(expectedKey);
-    });
-
-    it('should get map key from objects', function(){
-      var expectedKey = 3423628354;
-      var key = map.hash(1,{b:2},3);
-      key.should.deep.equal(expectedKey);
-    });
-
-    it('should get map key from function', function(){
-      var expectedKey = 2840318591;
-      var key = map.hash(1,{b:2},test);
-
-      function test(arg) {
-        console.log(arg);
-      }
-
+    it('should generate map key from args', function(){
+      var expectedKey = 3717699652;
+      var key = map.hash(5, 'afuh08h3sfasfs40n340unfe0ruhn0unerf0u', function test(){console.log(test);});
       key.should.equal(expectedKey);
     });
   });
