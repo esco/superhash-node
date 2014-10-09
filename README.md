@@ -13,10 +13,13 @@ npm install multikey
 
 ## Examples
 
-Multiple keys:
 ```js
 var MultiKeyHashMap = require('multikey');
 var map = new MultiKeyHashMap;
+```
+
+Multiple keys:
+```js
 var data = 'value';
 
 map.set(1,{ name: 'foo' }, true, data);
@@ -29,8 +32,6 @@ map.delete(1,{ name: 'foo' }, true);
 
 Single key:
 ```js
-var MultiKeyHashMap = require('../multikey');
-var map = new MultiKeyHashMap;
 var data = 'value';
 
 map.set(/.*/g, data);
