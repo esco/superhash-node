@@ -1,12 +1,12 @@
 var mkhash = require('multikey-hash');
 
 /**
- * Creates a new MultiKeyHashMap
+ * Creates a new SuperHash
  *
  * @class
  * @api public
  */
-function MultiKeyHashMap() {
+function SuperHash() {
   this.store = {};
 }
 
@@ -18,7 +18,7 @@ function MultiKeyHashMap() {
  * @return {Number} the hash associated with the keys
  * @api public
  */
-MultiKeyHashMap.prototype.set = function() {
+SuperHash.prototype.set = function() {
   var len = arguments.length;
   var value = Array.prototype.splice.call(arguments, len-1, len)[0];
   var key = mkhash.apply(this, arguments);
@@ -34,7 +34,7 @@ MultiKeyHashMap.prototype.set = function() {
  * @return {Object} value associated with generated hash
  * @api public
  */
-MultiKeyHashMap.prototype.get = function() {
+SuperHash.prototype.get = function() {
   var key = mkhash.apply(this, arguments);
 
   return this.store[key];
@@ -47,7 +47,7 @@ MultiKeyHashMap.prototype.get = function() {
  * @return {Boolean} whether the hash existed or not
  * @api public
  */
-MultiKeyHashMap.prototype.delete = function() {
+SuperHash.prototype.delete = function() {
   var key = mkhash.apply(this, arguments);
 
   if (!this.store[key]) {
@@ -56,4 +56,4 @@ MultiKeyHashMap.prototype.delete = function() {
   return delete this.store[key];
 };
 
-module.exports = MultiKeyHashMap;
+module.exports = SuperHash;

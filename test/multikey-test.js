@@ -1,5 +1,5 @@
 describe('HashMap', function () {
-  var MultiKeyHashMap = new require('../multikey');
+  var MultiKeyHashMap = new require('../superhash');
   var map;
 
   beforeEach(function () {

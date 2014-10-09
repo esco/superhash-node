@@ -1,12 +1,12 @@
 
-* [`MultiKeyHashMap`](#multikeyhashmap)
+* [`SuperHash`](#superhash)
 * [`set(keys, to)`](#setkeys-to)
 * [`get(keys)`](#getkeys)
 * [`delete(keys)`](#deletekeys)
 
-### `MultiKeyHashMap`
+### `SuperHash`
 
-Creates a new MultiKeyHashMap
+Creates a new SuperHash
 ### `set(keys, to)`
 * **keys** (`...*`) - Used to generate hash
 * **to** (`*`) be associated with the key

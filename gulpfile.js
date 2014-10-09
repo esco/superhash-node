@@ -16,7 +16,7 @@ gulp.task('lint', function(){
 });
 
 gulp.task('docs', function() {
-  return gulp.src('multikey.js')
+  return gulp.src('superhash.js')
     .pipe(mdox({
       name: "API.md",
       github: true

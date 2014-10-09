@@ -1,8 +1,8 @@
 {
-  "name": "multikey",
+  "name": "superhash",
   "version": "0.0.3",
-  "description": "HashMap that uses supports using multiple keys of any type",
-  "main": "multikey.js",
+  "description": "HashMap that supports using one or more keys of any type.",
+  "main": "superhash.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/esco/multikey.git"
