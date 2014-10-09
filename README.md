@@ -13,22 +13,37 @@ npm install multikey
 
 ## Examples
 
+Multiple keys:
 ```js
 var MultiKeyHashMap = require('multikey');
 var map = new MultiKeyHashMap;
 var data = 'value';
 
 map.set(1,{ name: 'foo' }, true, data);
-//2207988983 <-- key generated from arguments
+//2207988983 <-- hash generated from keys
 map.get(1,{ name: 'foo' }, true);
 //'value'
 map.delete(1,{ name: 'foo' }, true);
 //true <--- succesfully delete entry from map
 ```
 
+Single key:
+```js
+var MultiKeyHashMap = require('../multikey');
+var map = new MultiKeyHashMap;
+var data = 'value';
+
+map.set(/.*/g, data);
+//3163483247 <-- hash generated from key
+map.get(/.*/g);
+//'value'
+map.delete(/.*/g, true);
+//true <--- succesfully delete entry from map
+```
+
 ## FAQ
 
-### What types of objects can be used to create a hash key?
+### What types of objects can be used as a key?
 
 *Thanks to [toSource](https://github.com/marcello3d/node-tosource) the following types are supported
 
