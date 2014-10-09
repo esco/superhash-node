@@ -1,5 +1,4 @@
-var MurmurHash3 = require('imurmurhash');
-var toSource = require('tosource');
+var mkhash = require('multikey-hash');
 
 /**
  * Creates a new MultiKeyHashMap
@@ -12,21 +11,6 @@ function MultiKeyHashMap() {
 }
 
 /**
- * Generates a key using arguments
- *
- * @param {...*} keys - Used to generate the key with [MurmurHash3](https://github.com/jensyt/imurmurhash-js)
- * @return {Number} the generated hash
- * @api public
- */
-MultiKeyHashMap.prototype.hash = function() {
-  var hashState = MurmurHash3();
-  for (var i = 0, len = arguments.length ;  i < len; i++) {
-    hashState.hash(toSource(arguments[i]));
-  }
-  return hashState.result();
-};
-
-/**
  * Creates a hash from the keys if it doesn't exist and sets the last argument passed in as the value
  *
  * @param {...*} keys - Used to generate hash
@@ -37,7 +21,7 @@ MultiKeyHashMap.prototype.hash = function() {
 MultiKeyHashMap.prototype.set = function() {
   var len = arguments.length;
   var value = Array.prototype.splice.call(arguments, len-1, len)[0];
-  var key = this.hash.apply(this, arguments);
+  var key = mkhash.apply(this, arguments);
 
   this.store[key] = value;
   return key;
@@ -51,7 +35,7 @@ MultiKeyHashMap.prototype.set = function() {
  * @api public
  */
 MultiKeyHashMap.prototype.get = function() {
-  var key = this.hash.apply(this, arguments);
+  var key = mkhash.apply(this, arguments);
 
   return this.store[key];
 };
@@ -64,7 +48,7 @@ MultiKeyHashMap.prototype.get = function() {
  * @api public
  */
 MultiKeyHashMap.prototype.delete = function() {
-  var key = this.hash.apply(this, arguments);
+  var key = mkhash.apply(this, arguments);
 
   if (!this.store[key]) {
     return false;

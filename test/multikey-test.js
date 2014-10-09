@@ -45,13 +45,4 @@ describe('HashMap', function () {
       map.delete('a','b','c').should.not.be.ok;
     });
   });
-
-  describe('.hash', function () {
-    it('should generate map key from args', function(){
-      var expectedKey = 3717699652;
-      var key = map.hash(5, 'afuh08h3sfasfs40n340unfe0ruhn0unerf0u', function test(){console.log(test);});
-      key.should.equal(expectedKey);
-    });
-  });
-
 });

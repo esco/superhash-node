@@ -1,6 +1,5 @@
 
 * [`MultiKeyHashMap`](#multikeyhashmap)
-* [`hash(keys)`](#hashkeys)
 * [`set(keys, to)`](#setkeys-to)
 * [`get(keys)`](#getkeys)
 * [`delete(keys)`](#deletekeys)
@@ -8,10 +7,6 @@
 ### `MultiKeyHashMap`
 
 Creates a new MultiKeyHashMap
-### `hash(keys)`
-* **keys** (`...*`) - Used to generate the key with [MurmurHash3](https://github.com/jensyt/imurmurhash-js)
-
-Generates a key using arguments
 ### `set(keys, to)`
 * **keys** (`...*`) - Used to generate hash
 * **to** (`*`) be associated with the key
