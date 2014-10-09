@@ -14,7 +14,7 @@ npm install multikey
 ## Examples
 
 ```js
-var MultiKeyHashMap = require('multikey');
+var MultiKeyHashMap = require('../multikey');
 var map = new MultiKeyHashMap;
 var data = 'value';
 ```
@@ -27,14 +27,14 @@ map.get("/.*/g");
 //undefined
 map.get(/.*/g);
 //'value'
-map.delete(/.*/g, true);
+map.delete(/.*/g);
 //true <--- succesfully delete entry from map
 ```
 
 Multiple keys:
 ```js
 map.set(1,{ name: 'foo' }, true, data);
-//2207988983 <-- hash generated from keys
+//1486633419 <-- hash generated from keys
 map.get(1,{ name: 'foo' }, "true");
 //undefined
 map.get(1,{ name: 'foo' }, true);
