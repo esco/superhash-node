@@ -14,7 +14,7 @@ npm install multikey
 ## Examples
 
 ```js
-var MultiKeyHashMap = require('../multikey');
+var MultiKeyHashMap = require('multikey');
 var map = new MultiKeyHashMap;
 var data = 'value';
 ```
