@@ -1,6 +1,6 @@
 {
   "name": "superhash",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "HashMap that supports using one or more keys of any type.",
   "main": "superhash.js",
   "repository": {
