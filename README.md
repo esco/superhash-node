@@ -1,4 +1,4 @@
-superhash
+SuperHash
 ========
 
 [![Build Status](https://travis-ci.org/esco/superhash.svg?branch=master)](https://travis-ci.org/esco/superhash) [![Coverage Status](https://coveralls.io/repos/esco/superhash/badge.png)](https://coveralls.io/r/esco/superhash) [![Code Climate](https://codeclimate.com/github/esco/superhash/badges/gpa.svg)](https://codeclimate.com/github/esco/superhash)
