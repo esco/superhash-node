@@ -65,8 +65,10 @@ hashMap.delete(1,{ name: 'foo' }, true);
 * NaN
 * Infinity
 
-### Who names this module?
-@nik
+### Who named this module?
+[@nik](http://github.com/nik)
 
 ## LICENSE
-superhash is open source software under the
+[MIT][license-url]
+
+[license-url]: LICENSE
