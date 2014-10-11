@@ -3,6 +3,8 @@ SuperHash
 
 [![Build Status](https://travis-ci.org/esco/superhash.svg?branch=master)](https://travis-ci.org/esco/superhash) [![Coverage Status](https://coveralls.io/repos/esco/superhash/badge.png)](https://coveralls.io/r/esco/superhash) [![Code Climate](https://codeclimate.com/github/esco/superhash/badges/gpa.svg)](https://codeclimate.com/github/esco/superhash)
 
+![superhash](http://i.imgur.com/JcPuyeW.png)
+
 HashMap that supports using one or more keys of any type*
 
 >Hash keys are generated using [multikey-hash](https://github.com/esco/multikey-hash)
