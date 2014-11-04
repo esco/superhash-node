@@ -32,6 +32,6 @@
     "es6-collections": "^0.3.4"
   },
   "dependencies": {
-    "multikey-hash": "^1.0.0"
+    "multikey-hash": "^1.0.1"
   }
 }
