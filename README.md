@@ -47,23 +47,9 @@ hashMap.delete(1,{ name: 'foo' }, true);
 
 ## FAQ
 
-### What types of objects can be used as a key?
+### What types of keys can be used?
 
-*Thanks to [toSource](https://github.com/marcello3d/node-tosource) the following types are supported
-
-* Numbers
-* Strings
-* Array literals
-* object literals
-* function
-* RegExp literals
-* Dates
-* true
-* false
-* undefined
-* null
-* NaN
-* Infinity
+Any primitive or mutable object can be used as a key.
 
 ### Who named this module?
 [@nik](http://github.com/nik)

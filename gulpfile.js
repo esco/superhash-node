@@ -3,10 +3,12 @@ var jshint = require('gulp-jshint');
 var istanbul = require('gulp-istanbul');
 var mocha = require('gulp-mocha');
 var mdox = require('gulp-mdox');
+var benchmark = require('gulp-bench');
 
 var paths = {
   src: ['*.js'],
-  tests: ['test/*.js']
+  tests: ['test/*.js'],
+  benchmarks: ['benchmark/*.js']
 };
 
 gulp.task('lint', function(){
@@ -22,6 +24,11 @@ gulp.task('docs', function() {
       github: true
     }))
     .pipe(gulp.dest("./"));
+});
+
+gulp.task('bench', function() {
+  return gulp.src(paths.benchmarks)
+    .pipe(benchmark());
 });
 
 gulp.task('test', function(){

@@ -5,7 +5,7 @@
   "main": "superhash.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/esco/multikey.git"
+    "url": "https://github.com/esco/superhash.git"
   },
   "scripts": {
     "test": "mocha test/*-test.js --require test/config.js",
@@ -13,7 +13,7 @@
     "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec --ignore-leaks --require test/config test/"
   },
   "author": "Esco Obong",
-  "license": "ISC",
+  "license": "MIT",
   "keywords": "hash, hashmap, map, dictionary, set, hash table, multi-key, multikey, datastructure",
   "devDependencies": {
     "chai": "^1.9.2",
@@ -24,12 +24,14 @@
     "gulp-jshint": "^1.8.5",
     "gulp-mdox": "0.0.2",
     "gulp-mocha": "^1.1.1",
-    "gulp-yuidoc": "^0.1.2",
+    "gulp-bench": "^1.1.0",
     "istanbul": "^0.3.2",
     "jshint-stylish": "^1.0.0",
-    "mocha": "^1.21.4"
+    "mocha": "^1.21.4",
+    "hashmap": "^1.1.0",
+    "es6-collections": "^0.3.4"
   },
   "dependencies": {
-    "multikey-hash": "0.0.1"
+    "multikey-hash": "^1.0.0"
   }
 }
