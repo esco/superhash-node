@@ -19,7 +19,7 @@ $ npm install superhash
 
 ```js
 var SuperHash = require('superhash');
-var hashMap = new SuperHash;
+var hashMap = new SuperHash();
 var data = 'value';
 ```
 
@@ -47,6 +47,9 @@ hashMap.delete(1,{ name: 'foo' }, true);
 //true <--- succesfully delete entry from hashMap
 ```
 
+## API
+[See API.md][api-url]
+
 ## FAQ
 
 ### What types of keys can be used?
@@ -60,3 +63,4 @@ Any primitive or mutable object can be used as a key.
 [MIT][license-url]
 
 [license-url]: LICENSE
+[api-url]: API.md
