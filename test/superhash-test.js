@@ -58,4 +58,75 @@ describe('SuperHash', function () {
       hashMap.delete('a','b','c').should.not.be.ok;
     });
   });
+
+  describe('.keys()', function () {
+    it('should return the keys used in the map', function(){
+      var key1 = { foo: 'bar' };
+      var key2 = { blip: 'blop' };
+      var expectedKeys = [[1,2,3], [key1, key2]];
+
+      hashMap.set(1,2,3, 'foo');
+      hashMap.set(key1, key2, 'bar');
+      hashMap.keys().should.deep.equal(expectedKeys);
+    });
+
+    it('should return empty array when there are no keys', function(){
+      var expectedKeys = [];
+      hashMap.keys().should.deep.equal(expectedKeys);
+    });
+  });
+
+  describe('.values()', function () {
+    it('should return the values in the map', function(){
+      var key1 = { foo: 'bar' };
+      var key2 = { blip: 'blop' };
+      var expectedValues = ['foo' ,'bar'].sort();
+
+      hashMap.set(1,2,3, 'foo');
+      hashMap.set(key1, key2, 'bar');
+      hashMap.values().sort().should.deep.equal(expectedValues);
+    });
+
+    it('should return empty array when there are no values', function(){
+      var expectedValues = [];
+      hashMap.values().should.deep.equal(expectedValues);
+    });
+  });
+
+  describe('.entries()', function () {
+    it('should return the entries in the map', function(){
+      var key1 = { foo: 'bar' };
+      var key2 = { blip: 'blop' };
+      var expectedEntries = [[[1,2,3],'foo'], [[key1, key2],'bar']].sort();
+
+      hashMap.set(1,2,3, 'foo');
+      hashMap.set(key1, key2, 'bar');
+      hashMap.entries().sort().should.deep.equal(expectedEntries);
+    });
+
+    it('should return empty array when there are no entries', function(){
+      var expectedEntries = [];
+      hashMap.entries().should.deep.equal(expectedEntries);
+    });
+  });
+
+  describe('.forEach(cb,thisArg)', function () {
+    it('should invoke callback for each entry', function(){
+      var key1 = { foo: 'bar' };
+      var key2 = { blip: 'blop' };
+      var expectedEntries = [[[1,2,3],'foo'], [[key1, key2],'bar']];
+      var thisArg = {};
+      var cb = sinon.spy(function(){
+        this.should.equal(thisArg);
+      });
+
+      hashMap.set(1,2,3, 'foo');
+      hashMap.set(key1, key2, 'bar');
+      hashMap.forEach(cb, thisArg);
+
+      cb.should.have.been.calledTwice;
+      cb.should.have.been.calledWith('foo', [1,2,3]);
+      cb.should.have.been.calledWith('bar', [key1, key2]);
+    });
+  });
 });

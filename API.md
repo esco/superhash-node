@@ -1,21 +1,38 @@
 
 * [`SuperHash`](#superhash)
-* [`set(keys, to)`](#setkeys-to)
+* [`set(keys, value)`](#setkeys-value)
 * [`get(keys)`](#getkeys)
+* [`has(keys)`](#haskeys)
+* [`forEach(cb, context)`](#foreachcb-context)
 * [`delete(keys)`](#deletekeys)
 
 ### `SuperHash`
 
 Creates a new SuperHash
-### `set(keys, to)`
-* **keys** (`...*`) - Used to generate hash
-* **to** (`*`) be associated with the key
+### `set(keys, value)`
+* **keys** (`...*`) Used to generate hash
+* **value** (`*`) to be associated with the key
 
 Creates a hash from the keys if it doesn't exist and sets the last argument passed in as the value
 ### `get(keys)`
-* **keys** (`...*`) - Used to generate a hash for lookup
+* **keys** (`...*`) Used to generate a hash for lookup
 
 Returns the value associated with the hash generated from the keys
+### `has(keys)`
+* **keys** (`...*`) - Used to generate a hash for lookup
+
+Tells whether or not value associated with the hash generated from the keys is in the map
+### `forEach(cb, context)`
+* **cb** (`Function`) callback to invoke with all params
+* **context** (`*`) for the callback 
+
+Loops through each value in the hashmap passing it as the first argument in callack
+
+```js
+hashMap.forEach(function(value){
+  
+});
+```
 ### `delete(keys)`
 * **keys** (`...*`) - Used to generate a hash for lookup
 

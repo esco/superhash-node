@@ -7,7 +7,7 @@ var superhash = new SuperHash;
 var hashmap = new HashMap;
 var map = new Map;
 
-for (var i = 0; i < 100; i++) {
+for (var i = 0; i < 1000; i++) {
   superhash.set(i,i);
   hashmap.set(i,i);
   map.set(i,i);

@@ -8,7 +8,7 @@ var benchmark = require('gulp-bench');
 var paths = {
   src: ['*.js'],
   tests: ['test/*.js'],
-  benchmarks: ['benchmark/*.js']
+  benchmarks: ['benchmark/hash.js']
 };
 
 gulp.task('lint', function(){
@@ -44,3 +44,5 @@ gulp.task('test', function(){
 gulp.task('watch', function(){
   gulp.watch([paths.src, paths.tests], ['lint', 'test', 'docs']);
 });
+
+gulp.task('default', ['lint', 'test', 'docs']);
