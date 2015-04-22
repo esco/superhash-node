@@ -19,6 +19,10 @@ function SuperHash(entries) {
   this.store = {};
   this.size = 0;
 
+  if (Object.defineProperty) {
+    Object.defineProperty(this, 'store', {enumerable:false});
+  }
+  
   if (!entries) {
     return;
   }
