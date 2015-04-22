@@ -28,6 +28,13 @@ describe('SuperHash', function () {
       var _hashMap = hashMap.set(1,2);
       _hashMap.should.equal(hashMap);
     });
+
+    it('should increment size when new entries are added', function(){
+      hashMap
+        .set(1,2,3, 'value1')
+        .set('a','b', 'value2');
+      hashMap.size.should.equal(2);
+    });
   });
 
   describe('.get(...keys)', function(){
@@ -67,6 +74,14 @@ describe('SuperHash', function () {
       var expectedValue = 'val';
       hashMap.set(1,2,3, expectedValue);
       hashMap.delete('a','b','c').should.not.be.ok;
+    });
+
+    it('should decrease size when entries are removed', function(){
+      hashMap
+        .set(1,2,3, 'value1')
+        .set('a','b', 'value2');
+      hashMap.delete('a','b');
+      hashMap.size.should.equal(1);
     });
   });
 
@@ -138,6 +153,20 @@ describe('SuperHash', function () {
       cb.should.have.been.calledTwice;
       cb.should.have.been.calledWith('foo', [1,2,3]);
       cb.should.have.been.calledWith('bar', [key1, key2]);
+    });
+  });
+
+  describe('.clear()', function() {
+    it('should remove all entries', function(){
+      var key1 = { foo: 'bar' };
+      var key2 = { blip: 'blop' };
+      var expectedEntries = [];
+
+      hashMap.set(1,2,3, 'foo');
+      hashMap.set(key1, key2, 'bar');
+      hashMap.clear();
+      hashMap.entries().should.deep.equal(expectedEntries);
+      hashMap.size.should.equal(0);
     });
   });
 });

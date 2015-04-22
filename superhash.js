@@ -146,14 +146,17 @@ SuperHash.prototype.forEach = function forEach(cb, thisArg) {
 SuperHash.prototype.delete = function() {
   var key = mkhash.apply(this, arguments);
 
-  if (!this.store[key]) {
+  if (!this.store.hasOwnProperty(key)) {
     return false;
   }
-  return delete this.store[key];
+  delete this.store[key];
+  this.size--;
+  return true;
 };
 
 SuperHash.prototype.clear = function clear() {
-
+  this.store = {};
+  this.size = 0;
 };
 
 module.exports = SuperHash;
