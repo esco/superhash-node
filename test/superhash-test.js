@@ -74,11 +74,11 @@ describe('SuperHash', function () {
     it('should return the keys used in the map', function(){
       var key1 = { foo: 'bar' };
       var key2 = { blip: 'blop' };
-      var expectedKeys = [[1,2,3], [key1, key2]];
+      var expectedKeys = [[1,2,3], [key1, key2]].sort();
 
       hashMap.set(1,2,3, 'foo');
       hashMap.set(key1, key2, 'bar');
-      hashMap.keys().should.deep.equal(expectedKeys);
+      hashMap.keys().sort().should.deep.equal(expectedKeys);
     });
 
     it('should return empty array when there are no keys', function(){

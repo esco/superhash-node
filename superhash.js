@@ -156,5 +156,4 @@ SuperHash.prototype.clear = function clear() {
 
 };
 
-
 module.exports = SuperHash;
