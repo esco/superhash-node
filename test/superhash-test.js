@@ -6,6 +6,17 @@ describe('SuperHash', function () {
     hashMap = new SuperHash();
   });
 
+  describe('SuperHash()', function(){
+    it('should add entries passed to contstructor', function(){
+      var key1 = { foo: 'bar' };
+      var key2 = { blip: 'blop' };
+      var hmap = new SuperHash([[[1,2,3],'foo'], [[key1, key2],'bar']]);
+
+      hmap.get(1,2,3).should.equal('foo');
+      hmap.get(key1, key2).should.equal('bar');
+    });
+  });
+
   describe('.set(...keys, value)', function(){
     it('should set keys for value', function () {
       var expectedValue = 'val';

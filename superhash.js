@@ -3,12 +3,31 @@ var mkhash = require('multikey-hash');
 /**
  * Creates a new SuperHash
  *
+ *  Example `entries` Array
+ *
+ * ```
+ * [[1,2,3],'foo'], [[{foo: 'bar', {blip:'blop'}],'bar']]
+ * ```
+ * 
  * @class
+ * @param {Array} entries two dimensional array with entries to prefill the map. Keys must be an array (even if just one)
  * @api public
  */
-function SuperHash() {
+function SuperHash(entries) {
+  var args;
+
   this.store = {};
   this.size = 0;
+
+  if (!entries) {
+    return;
+  }
+
+  for (var i = 0; i < entries.length; i++) {
+    args = entries[i][0];
+    args.push(entries[i][1]);
+    this.set.apply(this, args);
+  }
 }
 
 /**
@@ -104,8 +123,8 @@ SuperHash.prototype.values = function values() {
  * });
  * ```
  * 
- * @param  {Function} cb      callback to invoke with all params
- * @param  {*}   context for the callback 
+ * @param  {Function} cb      callback function called with `(key, value)` for each entry in the map
+ * @param  {*}   `this` context for the callback 
  * @api public
  */
 SuperHash.prototype.forEach = function forEach(cb, thisArg) {
