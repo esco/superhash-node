@@ -13,16 +13,16 @@ var mkhash = require('multikey-hash');
  * @param {Array} entries two dimensional array with entries to prefill the map. Keys must be an array (even if just one)
  * @api public
  */
-function SuperHash(entries) {
+function SuperHash(entries /** entries**/) {
   var args;
-
+  //TODO use arugments instead of entries array
   this.store = {};
   this.size = 0;
 
   if (Object.defineProperty) {
     Object.defineProperty(this, 'store', {enumerable:false});
   }
-  
+
   if (!entries) {
     return;
   }
