@@ -89,33 +89,15 @@ SuperHash.prototype.has = function has() {
 };
 
 SuperHash.prototype.keys = function keys() {
-  var _keys = [];
-  for (var hash in this.store) {
-    if (this.store.hasOwnProperty(hash)) {
-      _keys.push(this.store[hash][0]);
-    }
-  }
-  return _keys;
+  return _getEntries(this.store, 0);
 };
 
 SuperHash.prototype.entries = function entries() {
-  var _entries = [];
-  for (var hash in this.store) {
-    if (this.store.hasOwnProperty(hash)) {
-      _entries.push(this.store[hash]);
-    }
-  }
-  return _entries;
+  return _getEntries(this.store);
 };
 
 SuperHash.prototype.values = function values() {
-  var _values = [];
-  for (var hash in this.store) {
-    if (this.store.hasOwnProperty(hash)) {
-      _values.push(this.store[hash][1]);
-    }
-  }
-  return _values;
+  return _getEntries(this.store, 1);
 };
 
 /**
@@ -162,5 +144,20 @@ SuperHash.prototype.clear = function clear() {
   this.store = {};
   this.size = 0;
 };
+
+function _getEntries(store, entryIndex) {
+  var results = [];
+  var value;
+  var entry;
+
+  for (var hash in store) {
+    if (store.hasOwnProperty(hash)){
+      entry = store[hash];
+      value = entryIndex === undefined ? entry : entry[entryIndex];
+      results.push(value);
+    }
+  }
+  return results;
+}
 
 module.exports = SuperHash;
