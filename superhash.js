@@ -145,6 +145,12 @@ SuperHash.prototype.clear = function clear() {
   this.size = 0;
 };
 
+/**
+ * Return all keys, values, or entries from hash map depending on entryIndex 
+ * @param  {Object} store      object of all hash/values
+ * @param  {Number} entryIndex 0=key, 1=value, undefined=entire entry
+ * @return {Array}            values from store
+ */
 function _getEntries(store, entryIndex) {
   var results = [];
   var value;
