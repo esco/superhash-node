@@ -110,7 +110,7 @@ SuperHash.prototype.values = function values() {
  * ```
  * 
  * @param  {Function} cb      callback function called with `(key, value)` for each entry in the map
- * @param  {*}   `this` context for the callback 
+ * @param  {*}   context      `this` context for the callback 
  * @api public
  */
 SuperHash.prototype.forEach = function forEach(cb, thisArg) {

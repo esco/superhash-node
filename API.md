@@ -1,14 +1,21 @@
 
-* [`SuperHash`](#superhash)
+* [`SuperHash(entries)`](#superhashentries)
 * [`set(keys, value)`](#setkeys-value)
 * [`get(keys)`](#getkeys)
 * [`has(keys)`](#haskeys)
 * [`forEach(cb, context)`](#foreachcb-context)
 * [`delete(keys)`](#deletekeys)
 
-### `SuperHash`
+### `SuperHash(entries)`
+* **entries** (`Array`) two dimensional array with entries to prefill the map. Keys must be an array (even if just one)
 
 Creates a new SuperHash
+
+ Example `entries` Array
+
+```
+[[1,2,3],'foo'], [[{foo: 'bar', {blip:'blop'}],'bar']]
+```
 ### `set(keys, value)`
 * **keys** (`...*`) Used to generate hash
 * **value** (`*`) to be associated with the key
@@ -23,8 +30,8 @@ Returns the value associated with the hash generated from the keys
 
 Tells whether or not value associated with the hash generated from the keys is in the map
 ### `forEach(cb, context)`
-* **cb** (`Function`) callback to invoke with all params
-* **context** (`*`) for the callback 
+* **cb** (`Function`) callback function called with `(key, value)` for each entry in the map
+* **context** (`*`) `this` context for the callback 
 
 Loops through each value in the hashmap passing it as the first argument in callack
 
