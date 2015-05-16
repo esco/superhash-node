@@ -26,25 +26,17 @@ var data = 'value';
 Single key:
 ```js
 hashMap.set(/.*/g, data);
-//3163483247 <-- hash generated from
-hashMap.get("/.*/g");
-//undefined
-hashMap.get(/.*/g);
-//'value'
-hashMap.delete(/.*/g);
-//true <--- succesfully delete entry from hashMap
+hashMap.get("/.*/g"); // returns undefined
+hashMap.get(/.*/g); // returns 'value'
+hashMap.delete(/.*/g); // returns true
 ```
 
 Multiple keys:
 ```js
 hashMap.set(1,{ name: 'foo' }, true, data);
-//1486633419 <-- hash generated from keys
-hashMap.get(1,{ name: 'foo' }, "true");
-//undefined
-hashMap.get(1,{ name: 'foo' }, true);
-//'value'
-hashMap.delete(1,{ name: 'foo' }, true);
-//true <--- succesfully delete entry from hashMap
+hashMap.get(1,{ name: 'foo' }, "true"); // returns undefined
+hashMap.get(1,{ name: 'foo' }, true); // returns 'value'
+hashMap.delete(1,{ name: 'foo' }, true); // returns true
 ```
 
 ## API
