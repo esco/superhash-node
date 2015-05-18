@@ -88,14 +88,29 @@ SuperHash.prototype.has = function has() {
   return key in this.store;
 };
 
+/**
+ * Returns all keys from the hash map
+ * @return {Array}            keys from the hash map
+ * @api public
+ */
 SuperHash.prototype.keys = function keys() {
   return _getEntries(this.store, 0);
 };
-
+  
+/**
+ * Returns all entries (key/value pairs) from the hash map
+ * @return {Array}            entries from the hash map
+ * @api public
+ */
 SuperHash.prototype.entries = function entries() {
   return _getEntries(this.store);
 };
 
+/**
+ * Returns all values from the hash map
+ * @return {Array}            values from the hash map
+ * @api public
+ */
 SuperHash.prototype.values = function values() {
   return _getEntries(this.store, 1);
 };
@@ -140,16 +155,21 @@ SuperHash.prototype.delete = function() {
   return true;
 };
 
+/**
+ * Deletes all keys and values from hash map
+ * @api public
+ */
 SuperHash.prototype.clear = function clear() {
   this.store = {};
   this.size = 0;
 };
 
 /**
- * Return all keys, values, or entries from hash map depending on entryIndex 
+ * Returns all keys, values, or entries from hash map depending on entryIndex 
  * @param  {Object} store      object of all hash/values
  * @param  {Number} entryIndex 0=key, 1=value, undefined=entire entry
  * @return {Array}            values from store
+ * @api private
  */
 function _getEntries(store, entryIndex) {
   var results = [];
@@ -157,11 +177,12 @@ function _getEntries(store, entryIndex) {
   var entry;
 
   for (var hash in store) {
-    if (store.hasOwnProperty(hash)){
-      entry = store[hash];
-      value = entryIndex === undefined ? entry : entry[entryIndex];
-      results.push(value);
+    if (!store.hasOwnProperty(hash)){
+      continue;
     }
+    entry = store[hash];
+    value = entryIndex === undefined ? entry : entry[entryIndex];
+    results.push(value);
   }
   return results;
 }
