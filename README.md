@@ -7,7 +7,7 @@ SuperHash
 
 HashMap that supports using one or more keys of any type*
 
->Hash keys are generated using [multikey-hash](https://github.com/esco/multikey-hash)
+>Hash keys are generated using [esco/multikey-hash](https://github.com/esco/multikey-hash)
 
 ## Installation
 
@@ -25,18 +25,19 @@ var data = 'value';
 
 Single key:
 ```js
-hashMap.set(/.*/g, data);
-hashMap.get("/.*/g"); // returns undefined
-hashMap.get(/.*/g); // returns 'value'
-hashMap.delete(/.*/g); // returns true
+hashMap.set(5, data);
+hashMap.get("5"); // returns undefined
+hashMap.get(5); // returns 'value'
+hashMap.delete(5); // returns true
 ```
 
 Multiple keys:
 ```js
-hashMap.set(1,{ name: 'foo' }, true, data);
-hashMap.get(1,{ name: 'foo' }, "true"); // returns undefined
-hashMap.get(1,{ name: 'foo' }, true); // returns 'value'
-hashMap.delete(1,{ name: 'foo' }, true); // returns true
+var obj = { name: 'foo' };
+hashMap.set(1, obj, true, data);
+hashMap.get(1, obj, "true"); // returns undefined
+hashMap.get(1, obj, true); // returns 'value'
+hashMap.delete(1, obj, true); // returns true
 ```
 
 ## API
